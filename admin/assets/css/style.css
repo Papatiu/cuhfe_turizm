@@ -1,0 +1,122 @@
+/* admin/assets/css/style.css */
+
+/* ... (Mevcut login stillerinin üstte kalabilir) ... */
+
+/* Dashboard ve Panel Stilleri (MOBİL UYUMLU VERSİYON) */
+:root {
+    --main-bg-color: #f4f6f9;
+    --sidebar-bg-color: #212529;
+    --sidebar-text-color: #adb5bd;
+    --sidebar-hover-color: #343a40;
+    --primary-theme-color: #0a2e5c;
+    --secondary-theme-color: #d4af37;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#wrapper {
+    display: flex;
+}
+
+#sidebar-wrapper {
+    background: var(--sidebar-bg-color);
+    min-height: 100vh;
+    width: 250px;
+    z-index: 1000;
+    transition: all 0.3s;
+    /* Mobilde başlangıçta tamamen gizli */
+    margin-left: -250px; 
+}
+
+#page-content-wrapper {
+    width: 100%;
+    transition: all 0.3s;
+}
+
+/* Sidebar açıldığında içeriği itmek yerine üzerine gelsin (overlay efekti mobilde daha iyi) */
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+/* Menü toggle butonu */
+#menu-toggle {
+    cursor: pointer;
+}
+
+/* Sidebar İçeriği */
+.sidebar-heading {
+    border-bottom: 1px solid #495057;
+}
+.list-group-item {
+    padding: .75rem 1.25rem;
+    color: var(--sidebar-text-color);
+    border: 0;
+}
+.list-group-item:hover, .list-group-item:focus {
+    color: #fff;
+    background-color: var(--sidebar-hover-color) !important;
+}
+.list-group-item.active {
+    background-color: var(--primary-theme-color) !important;
+    color: var(--secondary-theme-color) !important;
+    font-weight: bold;
+    border-left: 4px solid var(--secondary-theme-color);
+    padding-left: calc(1.25rem - 4px);
+}
+
+/* Özet Kartları Stili */
+.summary-card {
+    border: none;
+    border-left: 4px solid var(--primary-theme-color);
+}
+.text-gray-300 { 
+    color: #dddfeb !important; 
+}
+
+/* --- Medya Sorguları (MOBİL UYUMLULUK İÇİN EN KRİTİK KISIM) --- */
+
+/* Büyük Ekranlar (Masaüstü) */
+@media (min-width: 992px) { /* lg ve üstü */
+    #sidebar-wrapper {
+        margin-left: 0; /* Masaüstünde sidebar hep görünür */
+    }
+
+    #page-content-wrapper {
+        width: calc(100% - 250px); /* İçerik, sidebar genişliği kadar daralsın */
+        left: 250px;
+        position: absolute;
+    }
+    
+    /* Masaüstünde menü kapatıldığında */
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -250px;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        width: 100%;
+        left: 0;
+    }
+}
+
+/* Mobilde ve tablette sidebar açıldığında bir overlay ekleyelim */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    cursor: pointer;
+}
+#wrapper.toggled .sidebar-overlay {
+    display: block;
+}
+@media (min-width: 992px) {
+    .sidebar-overlay {
+        display: none !important;
+    }
+}

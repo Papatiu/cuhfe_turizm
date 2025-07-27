@@ -1,0 +1,173 @@
+<?php
+// admin/musteri_duzenle.php
+require_once 'includes/header.php';
+
+// ID'nin gelip gelmediğini ve geçerli olup olmadığını kontrol et
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    $_SESSION['error_message'] = "Geçersiz müşteri ID'si.";
+    header("Location: musteriler.php");
+    exit;
+}
+
+$customer_id = $_GET['id'];
+
+// Veritabanından düzenlenecek müşteri bilgilerini çek
+$stmt = $db->prepare("SELECT * FROM customers WHERE id = ?");
+$stmt->execute([$customer_id]);
+$customer = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Eğer müşteri bulunamazsa
+if (!$customer) {
+    $_SESSION['error_message'] = "Müşteri bulunamadı.";
+    header("Location: musteriler.php");
+    exit;
+}
+
+$page_title = "Düzenle: " . htmlspecialchars($customer['first_name'] . ' ' . $customer['last_name']);
+
+?>
+
+<h2 class="mb-4">Müşteri Kaydını Düzenle</h2>
+
+<div class="card shadow">
+    <div class="card-body">
+        <!-- Bu formu da merkezi bir musteri_kaydet.php dosyasına göndereceğiz -->
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <!-- Düzenleme için müşteri ID'sini ve mevcut resmi gizli input'larla gönder -->
+            <input type="hidden" name="customer_id" value="<?php echo $customer['id']; ?>">
+            <input type="hidden" name="current_photo" value="<?php echo htmlspecialchars($customer['photo']); ?>">
+
+            <div class="row g-3">
+                <div class="col-md-9">
+                    <h5 class="border-bottom pb-2 mb-3">Kimlik Bilgileri</h5>
+                    <div class="row g-3">
+                         <div class="col-md-4">
+                            <label for="tc_no" class="form-label">TC Kimlik No</label>
+                            <input type="text" class="form-control" id="tc_no" name="tc_no" value="<?php echo htmlspecialchars($customer['tc_no']); ?>" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="serial_no" class="form-label">Seri No</label>
+                            <input type="text" class="form-control" id="serial_no" name="serial_no" value="<?php echo htmlspecialchars($customer['serial_no']); ?>">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="nationality" class="form-label">Uyruğu</label>
+                            <input type="text" class="form-control" id="nationality" name="nationality" value="<?php echo htmlspecialchars($customer['nationality']); ?>">
+                        </div>
+
+                         <div class="col-md-6">
+                            <label for="first_name" class="form-label">Adı</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo htmlspecialchars($customer['first_name']); ?>" required>
+                        </div>
+                         <div class="col-md-6">
+                            <label for="last_name" class="form-label">Soyadı</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo htmlspecialchars($customer['last_name']); ?>" required>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label for="father_name" class="form-label">Baba Adı</label>
+                            <input type="text" class="form-control" id="father_name" name="father_name" value="<?php echo htmlspecialchars($customer['father_name']); ?>">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="mother_name" class="form-label">Anne Adı</label>
+                            <input type="text" class="form-control" id="mother_name" name="mother_name" value="<?php echo htmlspecialchars($customer['mother_name']); ?>">
+                        </div>
+                        
+                         <div class="col-md-6">
+                            <label for="birth_place" class="form-label">Doğum Yeri</label>
+                            <input type="text" class="form-control" id="birth_place" name="birth_place" value="<?php echo htmlspecialchars($customer['birth_place']); ?>">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="birth_date" class="form-label">Doğum Tarihi</label>
+                            <input type="date" class="form-control" id="birth_date" name="birth_date" value="<?php echo $customer['birth_date']; ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                     <h5 class="border-bottom pb-2 mb-3">Profil Resmi</h5>
+                     <img src="../images/customers/<?php echo htmlspecialchars($customer['photo']); ?>" id="photo-preview" class="img-thumbnail mb-3" alt="Profil Resmi" onerror="this.src='../images/customers/default_user.png';">
+                     <label for="photo" class="form-label">Resmi Değiştir</slabel>
+                     <input class="form-control" type="file" id="photo" name="photo" onchange="previewImage(event)">
+                </div>
+                
+                <div class="col-12"><hr class="my-4"></div>
+                
+                <div class="col-md-6">
+                     <h5 class="border-bottom pb-2 mb-3">Diğer Kişisel Bilgiler</h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                             <label for="gender" class="form-label">Cinsiyet</label>
+                            <select id="gender" name="gender" class="form-select">
+                                <option value="Erkek" <?php echo ($customer['gender'] == 'Erkek') ? 'selected' : ''; ?>>Erkek</option>
+                                <option value="Kadın" <?php echo ($customer['gender'] == 'Kadın') ? 'selected' : ''; ?>>Kadın</option>
+                            </select>
+                        </div>
+                         <div class="col-md-4">
+                             <label for="marital_status" class="form-label">Medeni Hali</label>
+                            <select id="marital_status" name="marital_status" class="form-select">
+                                 <option value="Bekar" <?php echo ($customer['marital_status'] == 'Bekar') ? 'selected' : ''; ?>>Bekar</option>
+                                 <option value="Evli" <?php echo ($customer['marital_status'] == 'Evli') ? 'selected' : ''; ?>>Evli</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="religion" class="form-label">Dini</label>
+                            <input type="text" class="form-control" id="religion" name="religion" value="<?php echo htmlspecialchars($customer['religion']); ?>">
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="col-md-6">
+                     <h5 class="border-bottom pb-2 mb-3">Pasaport Bilgileri (Opsiyonel)</h5>
+                     <div class="row g-3">
+                         <div class="col-md-6">
+                             <label for="passport_no" class="form-label">Pasaport No</label>
+                             <input type="text" class="form-control" id="passport_no" name="passport_no" value="<?php echo htmlspecialchars($customer['passport_no']); ?>">
+                         </div>
+                         <div class="col-md-6">
+                             <label for="passport_expiry" class="form-label">Geçerlilik Tarihi</label>
+                             <input type="date" class="form-control" id="passport_expiry" name="passport_expiry" value="<?php echo $customer['passport_expiry']; ?>">
+                         </div>
+                     </div>
+                 </div>
+
+                <div class="col-12"><hr class="my-4"></div>
+                
+                <div class="col-md-12">
+                     <h5 class="border-bottom pb-2 mb-3">İletişim Bilgileri</h5>
+                     <div class="row g-3">
+                         <div class="col-md-4">
+                             <label for="phone" class="form-label">Telefon</label>
+                             <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($customer['phone']); ?>" required>
+                         </div>
+                         <div class="col-md-4">
+                             <label for="email" class="form-label">E-Posta</label>
+                             <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($customer['email']); ?>">
+                         </div>
+                         <div class="col-md-4">
+                             <label for="address" class="form-label">Adres</label>
+                             <input type="text" class="form-control" id="address" name="address" value="<?php echo htmlspecialchars($customer['address']); ?>">
+                         </div>
+                     </div>
+                 </div>
+
+                <div class="col-12 text-end mt-4">
+                    <a href="musteriler.php" class="btn btn-secondary">İptal</a>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Değişiklikleri Kaydet</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<?php require_once 'includes/footer.php'; ?>
+<!-- Resim önizleme için aynı scripti tekrar ekleyelim -->
+<script>
+function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+        var output = document.getElementById('photo-preview');
+        output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+}
+</script>
