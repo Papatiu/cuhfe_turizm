@@ -90,7 +90,7 @@ $latest_messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <a href="view_message.php?id=<?php echo $message['id']; ?>" class="btn btn-sm btn-info" title="Görüntüle"><i class="fas fa-eye"></i></a>
+                                   <a href="mesaj_goruntule.php?id=<?php echo $message['id']; ?>" class="btn btn-sm btn-info" title="Oku"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

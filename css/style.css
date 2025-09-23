@@ -1,468 +1,892 @@
 /* === GENEL & TEMEL STİLLER === */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa; /* Açık Gri Arka Plan */
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa; /* Açık Gri Arka Plan */
 }
-h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link {
-    font-family: 'Montserrat', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.nav-link {
+  font-family: "Montserrat", sans-serif;
 }
 :root {
-    --primary-color: #0a2e5c; /* Koyu Lacivert */
-    --secondary-color: #d4af37; /* Altın Sarısı */
-    --light-bg: #f8f9fa;
-    --dark-text: #333333;
+  --primary-color: #0a2e5c; /* Koyu Lacivert */
+  --secondary-color: #d4af37; /* Altın Sarısı */
+  --light-bg: #f8f9fa;
+  --dark-text: #333333;
 }
 .section-title {
-    font-weight: 700;
-    color: var(--primary-color);
-    position: relative;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
 }
 .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--secondary-color);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--secondary-color);
 }
 
 /* === ÜST BİLGİ BARI === */
-.top-bar { background-color: var(--primary-color); font-size: 0.9rem; }
-.top-bar a { text-decoration: none; transition: opacity 0.3s; }
-.top-bar a:hover { opacity: 0.8; }
-
+.top-bar {
+  background-color: var(--primary-color);
+  font-size: 0.9rem;
+}
+.top-bar a {
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.top-bar a:hover {
+  opacity: 0.8;
+}
 
 /* === NAVİGASYON (GELİŞMİŞ ORTALI LOGO - TAŞAN TASARIM) === */
 /* === NAVİGASYON (TAŞAN LOGO - NİHAİ VERSİYON) === */
 
 .main-nav {
-    position: relative;
-    /* Alttan boşluk vermiyoruz ki alttaki içerik yapışsın */
-    z-index: 100; /* Logonun ve menünün her zaman en üstte kalmasını garantile */
+  position: relative;
+  /* Alttan boşluk vermiyoruz ki alttaki içerik yapışsın */
+  z-index: 100; /* Logonun ve menünün her zaman en üstte kalmasını garantile */
 }
 
 /* Masaüstü Ekranlar için Stiller */
-@media (min-width: 992px) { 
-    .main-nav .navbar-brand {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 101; /* Menüden bile üstte olsun */
-    }
+@media (min-width: 992px) {
+  .main-nav .navbar-brand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101; /* Menüden bile üstte olsun */
+  }
 
-    .main-nav .main-logo {
-        height: 100px;
-        width: 100px;
-        background-color: #fff;
-        padding: 8px;
-        border-radius: 50%;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        border: 2px solid #fff;
-        transition: transform 0.3s ease;
-    }
-    .main-nav .main-logo:hover {
-        transform: scale(1.1);
-    }
-    
-    .main-nav .navbar-nav .nav-link {
-        font-weight: 700;
-        padding: 20px 15px;
-    }
-    
-    #navbarNavLeft  { flex-grow: 1; }
-    #navbarNavRight { flex-grow: 1; }
-    #navbarNavLeft .navbar-nav { justify-content: flex-end; padding-right: 60px; }
-    #navbarNavRight .navbar-nav { padding-left: 60px; }
+  .main-nav .main-logo {
+    height: 100px;
+    width: 100px;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+    transition: transform 0.3s ease;
+  }
+  .main-nav .main-logo:hover {
+    transform: scale(1.1);
+  }
+
+  .main-nav .navbar-nav .nav-link {
+    font-weight: 700;
+    padding: 20px 15px;
+  }
+
+  #navbarNavLeft {
+    flex-grow: 1;
+  }
+  #navbarNavRight {
+    flex-grow: 1;
+  }
+  #navbarNavLeft .navbar-nav {
+    justify-content: flex-end;
+    padding-right: 60px;
+  }
+  #navbarNavRight .navbar-nav {
+    padding-left: 60px;
+  }
 }
 
 /* --- ANA MANŞET BÖLÜMÜNE SİHİRLİ DOKUNUŞ --- */
 .hero-section {
-    /* Navbarın altına 50px'lik negatif margin vererek yukarı, logonun altına çekiyoruz */
-    margin-top: -50px; 
+  /* Navbarın altına 50px'lik negatif margin vererek yukarı, logonun altına çekiyoruz */
+  margin-top: -50px;
 }
-
 
 /* Mobil Ekranlar için Stiller (Aynı kalacak) */
 @media (max-width: 991.98px) {
-    /* Mobilde bu negatif margini sıfırla ki bozulmasın */
-    .hero-section {
-        margin-top: 0;
-    }
-    .main-nav .navbar-brand {
-        padding: 0;
-        margin: 0 auto; 
-    }
-    .main-nav .main-logo {
-        height: 60px; 
-        width: 60px;
-        box-shadow: none;
-    }
-    .navbar-collapse {
-        text-align: center;
-        margin-top: 15px; 
-    }
+  /* Mobilde bu negatif margini sıfırla ki bozulmasın */
+  .hero-section {
+    margin-top: 0;
+  }
+  .main-nav .navbar-brand {
+    padding: 0;
+    margin: 0 auto;
+  }
+  .main-nav .main-logo {
+    height: 60px;
+    width: 60px;
+    box-shadow: none;
+  }
+  .navbar-collapse {
+    text-align: center;
+    margin-top: 15px;
+  }
 }
 
 /* === ANA MANŞET & TUR ARAMA FORMU === */
 .hero-section {
-    position: relative;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .hero-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* BU İKİ SATIR EN ÖNEMLİSİ */
+  background-size: cover; /* Resmi, kaliteyi bozmadan tüm alanı kaplayacak şekilde boyutlandırır */
+  background-position: center center; /* Resmi her zaman merkezden gösterir, kenarlar feda edilebilir */
 }
 .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Yazıların okunurluğu için arka planı biraz daha koyulaştıralım */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  z-index: 1;
 }
 .hero-content {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 .tour-search-form {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
 }
-.tour-search-form .form-control, .tour-search-form .form-select {
-    padding: 0.75rem 1rem;
-    height: 50px;
+.tour-search-form .form-control,
+.tour-search-form .form-select {
+  padding: 0.75rem 1rem;
+  height: 50px;
 }
 .tour-search-form .btn {
-    height: 50px;
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    color: #fff;
-    font-weight: bold;
+  height: 50px;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+  font-weight: bold;
 }
 .tour-search-form .btn:hover {
-    background-color: #c09b2e;
-    border-color: #c09b2e;
+  background-color: #c09b2e;
+  border-color: #c09b2e;
 }
 
 /* === ÖNE ÇIKAN TURLAR v2 === */
 .tour-card-v2 {
-    border: 1px solid #e0e0e0;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .tour-card-v2:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
 }
 .tour-image-container {
-    position: relative;
+  position: relative;
 }
 .tour-price-banner {
-    position: absolute;
-    top: 20px;
-    left: -10px;
-    background: linear-gradient(45deg, var(--primary-color), #1b4a89);
-    color: white;
-    padding: 8px 20px 8px 25px;
-    font-size: 1.3rem;
-    font-weight: 700;
-    border-radius: 0 50px 50px 0;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  background: linear-gradient(45deg, var(--primary-color), #1b4a89);
+  color: white;
+  padding: 8px 20px 8px 25px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 0 50px 50px 0;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .tour-price-banner .old-price {
-    text-decoration: line-through;
-    font-size: 1rem;
-    opacity: 0.7;
-    margin-right: 5px;
+  text-decoration: line-through;
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-right: 5px;
 }
 .tour-card-v2 .card-title {
-    color: var(--primary-color);
-    font-weight: 700;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
+  color: var(--primary-color);
+  font-weight: 700;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
 }
 .tour-details li {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
 }
 .tour-details li i {
-    color: var(--secondary-color);
-    width: 20px;
-    text-align: center;
-    margin-right: 5px;
+  color: var(--secondary-color);
+  width: 20px;
+  text-align: center;
+  margin-right: 5px;
 }
 
 /* === OFİSİMİZE BEKLERİZ BÖLÜMÜ (CTA) === */
 .cta-section {
-    background: linear-gradient(90deg, #532d8c, #0a2e5c); /* bestur'daki gibi mor->lacivert geçişi */
+  background: linear-gradient(
+    90deg,
+    #532d8c,
+    #0a2e5c
+  ); /* bestur'daki gibi mor->lacivert geçişi */
 }
 .contact-info-box {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 .contact-info-box .info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .contact-info-box .info-item:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 .contact-info-box .icon {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-    color: var(--primary-color);
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  color: var(--primary-color);
 }
 .contact-info-box .text h5 {
-    color: var(--primary-color);
-    margin-bottom: 2px;
-    font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 2px;
+  font-weight: bold;
 }
 .contact-info-box .text p {
-    margin-bottom: 0;
-    color: #666;
+  margin-bottom: 0;
+  color: #666;
 }
 
 /* === WHATSAPP BUTONU === */
 .whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
 }
 .whatsapp-float:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* === WHATSAPP BUTONU (GÜNCELLENMİŞ) === */
 .whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
 }
 .whatsapp-float:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 .whatsapp-float i {
-    font-size: 36px; /* İkon boyutunu buradan ayarla */
+  font-size: 36px; /* İkon boyutunu buradan ayarla */
 }
-
 
 /* === HARİTA BÖLÜMÜ === */
 .map-section {
-    background-color: #fff; /* Veya bg-light istersen #f8f9fa */
+  background-color: #fff; /* Veya bg-light istersen #f8f9fa */
 }
 .map-container {
-    border-radius: 15px;
-    overflow: hidden; /* Haritanın köşelerini yuvarlatmak için gerekli */
-    border: 1px solid #ddd;
+  border-radius: 15px;
+  overflow: hidden; /* Haritanın köşelerini yuvarlatmak için gerekli */
+  border: 1px solid #ddd;
 }
 #gmap_canvas {
-    height: 450px; /* Haritanın yüksekliği */
-    width: 100%;
+  height: 450px; /* Haritanın yüksekliği */
+  width: 100%;
 }
 /* === PRELOADER (YÜKLENİYOR EKRANI) === */
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background-color: var(--primary-color); /* Sitenin ana rengini kullanalım, şık durur */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.75s ease, visibility 0.75s ease; /* Yavaşça kaybolma efekti */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: var(
+    --primary-color
+  ); /* Sitenin ana rengini kullanalım, şık durur */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.75s ease, visibility 0.75s ease; /* Yavaşça kaybolma efekti */
 }
 
 #preloader.preloader-hidden {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .loader-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loader-image {
-    width: 120px; /* Döngüden biraz küçük olmalı */
-    height: 120px;
-    border-radius: 50%; /* Resmi de yuvarlak yapalım */
-    object-fit: cover;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  width: 120px; /* Döngüden biraz küçük olmalı */
+  height: 120px;
+  border-radius: 50%; /* Resmi de yuvarlak yapalım */
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .spinner {
-    position: absolute;
-    width: 150px; /* Resimden daha büyük */
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid rgba(212, 175, 55, 0.3); /* Döngünün sabit rengi (yarı saydam altın) */
-    border-top-color: var(--secondary-color); /* Döngünün dönen kısmı (opak altın) */
-    animation: spin 1.2s linear infinite; /* Animasyonu çalıştır */
+  position: absolute;
+  width: 150px; /* Resimden daha büyük */
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid rgba(212, 175, 55, 0.3); /* Döngünün sabit rengi (yarı saydam altın) */
+  border-top-color: var(
+    --secondary-color
+  ); /* Döngünün dönen kısmı (opak altın) */
+  animation: spin 1.2s linear infinite; /* Animasyonu çalıştır */
 }
 
 /* Dönme Animasyonu */
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 /* === FOOTER (YENİ VE GELİŞMİŞ TASARIM) === */
 .footer-section {
-    background: var(--primary-color);
-    color: #a9a9a9; /* Açık gri metin rengi */
-    padding-top: 80px;
-    padding-bottom: 20px;
+  background: var(--primary-color);
+  color: #a9a9a9; /* Açık gri metin rengi */
+  padding-top: 80px;
+  padding-bottom: 20px;
 }
 
 .footer-widget .widget-title {
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    position: relative;
-    padding-bottom: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
 }
 /* Başlıkların altındaki altın sarısı çizgi */
 .footer-widget .widget-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background: var(--secondary-color);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--secondary-color);
 }
 
 .footer-logo img {
-    max-height: 60px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 8px;
+  max-height: 60px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px;
 }
 
 .footer-text {
-    line-height: 1.8;
-    font-size: 0.95rem;
+  line-height: 1.8;
+  font-size: 0.95rem;
 }
 
 .footer-links li {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 .footer-links li a {
-    color: #a9a9a9;
-    text-decoration: none;
-    transition: all 0.3s;
+  color: #a9a9a9;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 .footer-links li a:hover {
-    color: #fff;
-    padding-left: 5px;
+  color: #fff;
+  padding-left: 5px;
 }
 
 .footer-social-icons a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,0.1);
-    color: #fff;
-    text-decoration: none;
-    margin-right: 10px;
-    transition: all 0.3s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+  transition: all 0.3s;
 }
 .footer-social-icons a:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.1);
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
 }
 
 .footer-contact-info li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 .footer-contact-info i {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    margin-right: 15px;
-    margin-top: 5px;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-right: 15px;
+  margin-top: 5px;
 }
 .footer-contact-info p,
 .footer-contact-info a {
-    margin-bottom: 0;
-    color: #a9a9a9;
-    text-decoration: none;
+  margin-bottom: 0;
+  color: #a9a9a9;
+  text-decoration: none;
 }
 .footer-contact-info a:hover {
-    color: #fff;
+  color: #fff;
 }
 
 .copyright-text {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .copyright-text p {
-    margin: 0;
-    color: #888;
+  margin: 0;
+  color: #888;
+}
+/* === GENEL SAYFA BAŞLIĞI (İLETİŞİM, KURUMSAL VB. SAYFALAR İÇİN) === */
+.page-header {
+  padding: 80px 0; /* Başlık alanına yükseklik veriyoruz */
+  position: relative;
+  background-size: cover; /* Resmin alanı kaplamasını sağlar */
+  background-position: center; /* Resmi ortalar */
+  background-repeat: no-repeat; /* Resmin tekrarlanmasını engeller */
+  text-align: center; /* İçindeki her şeyi ortalar */
+  color: #fff; /* Yazı rengini beyaz yapar */
+}
+
+/* Başlık resmini karartmak için üzerine bir katman ekliyoruz */
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Siyah, %50 saydamlıkta bir katman */
+  z-index: 1; /* Katmanın resmin üzerinde olmasını sağlar */
+}
+
+/* Yazıların karartma katmanının da üzerine çıkmasını sağlıyoruz */
+.page-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-header .page-title {
+  font-size: 3.5rem; /* Başlığı büyütüyoruz */
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Yazıya gölge ekleyerek okunurluğu artırıyoruz */
+}
+
+.page-header .page-subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* === İLETİŞİM SAYFASI ÖZEL STİLLERİ === */
+.contact-left-panel {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%; /* Form ile aynı hizada olması için */
+}
+
+.contact-info-item {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.contact-info-item i {
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+.contact-info-item p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0;
+}
+/* Galeri Bölümü Stilleri */
+.gallery-item {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.375rem; /* Bootstrap'in yuvarlaklığı */
+}
+.gallery-item img {
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+.gallery-item::after {
+  /* Resmin üzerine gelince kararma efekti */
+  content: "\f00e"; /* Font Awesome'dan büyüteç ikonu */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 3rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background-color: rgba(
+    10,
+    46,
+    92,
+    0.5
+  ); /* Sitenin ana renginde bir overlay */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gallery-item:hover::after {
+  opacity: 1;
+}
+/* === SAYFA BAŞLIĞI KARTI İÇİN YENİ STİLLER === */
+
+/*
+   Bu bölüm, arka plan resmi olan page-header'ı biraz daha
+   uzun ve esnek hale getiriyor ki kart içinde güzel dursun.
+*/
+.page-header {
+  display: flex; /* İçeriği dikeyde ortalamak için */
+  align-items: center; /* İçeriği dikeyde ortalamak için */
+  padding: 120px 0; /* Kartın sığması için yüksekliği artıralım */
+}
+
+/* İşte asıl sihir burada! */
+.page-header-card {
+  background-color: rgba(255, 255, 255, 0.15); /* Yarı saydam beyaz arka plan */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Hafif beyaz bir çerçeve */
+  backdrop-filter: blur(
+    10px
+  ); /* Arkaplanı bulanıklaştıran "Buzlu Cam" efekti */
+  -webkit-backdrop-filter: blur(10px); /* Safari uyumluluğu için */
+  padding: 2.5rem 2rem; /* Kart içi boşluklar */
+  border-radius: 15px; /* Yumuşak köşeler */
+  text-align: center;
+  color: #fff; /* Yazı rengi */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); /* Karta hafif bir derinlik gölgesi */
+}
+
+.page-header-card .page-title {
+  font-size: 2.8rem; /* Kart içinde başlık biraz daha küçük olabilir */
+  text-shadow: none; /* Kartın kendi gölgesi olduğu için yazı gölgesine gerek kalmadı */
+}
+
+.page-header-card .page-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  text-shadow: none;
+}
+/* === YENİ ŞIK SAYFA BAŞLIĞI KARTI STİLLERİ === */
+/* === YENİ ŞIK SAYFA BAŞLIĞI KARTI (SON VERSİYON) === */
+
+.page-title-section {
+  padding: 60px 0;
+  background-color: #f0f2f5;
+}
+
+.page-title-card-container {
+  overflow: hidden; /* Dışına taşan gölgeleri ve border-radius'u düzgün gösterir */
+  border-radius: 1rem; /* 16px yuvarlak köşe */
+}
+
+.page-title-image {
+  min-height: 400px;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.page-title-card {
+  background-color: #ffffff;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+}
+
+.page-title-card .card-title-text {
+  font-size: 2.75rem; /* 44px */
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.page-title-card .card-subtitle-text {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.page-title-card .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  align-self: flex-start;
+}
+
+/* --- Mobil Uyumlu Hale Getirme --- */
+@media (max-width: 991.98px) {
+  /* Mobilde resim gizlenir, sadece kart görünür */
+  .page-title-card {
+    min-height: auto; /* Yükseklik otomatik ayarlanır */
+    text-align: center;
+    border-radius: 1rem; /* Mobilde kartın tüm köşeleri yuvarlak */
+  }
+
+  .page-title-card .btn-primary {
+    align-self: center; /* Mobilde buton ortalanır */
+  }
+}
+
+/* == BLOG SAYFASI STİLLERİ == */
+
+/* Blog Kartı Tasarımı */
+.blog-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.blog-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card .card-title a {
+  transition: color 0.3s;
+}
+
+.blog-card .card-title a:hover {
+  color: var(--secondary-color) !important; /* Altın sarısı */
+}
+
+/* Tek Yazı Sayfası (yazi.php) Başlığı */
+.page-title-single {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.post-meta {
+  color: #f1f1f1;
+  font-size: 0.9rem;
+}
+
+/* Yazı İçeriği */
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5 {
+  color: var(--primary-color); /* Koyu Lacivert */
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  font-weight: 700;
+}
+
+.blog-content p {
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.blog-content ol,
+.blog-content ul {
+  padding-left: 2rem;
+  line-height: 1.8;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid var(--secondary-color);
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: #555;
+  margin: 2rem 0;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+/* == GÜNCELLENMİŞ YAZI İÇİ RESİM STİLİ == */
+
+.post-image-card {
+  /* Boyut ve Konumlandırma */
+  max-width: 80%; /* Resim kartının maksimum genişliği, yazı alanının %80'i kadar olsun */
+  margin-left: auto; /* Otomatik olarak sağa ve sola ortala */
+  margin-right: auto;
+  overflow: hidden; /* Köşelerden taşan resim parçalarını gizle */
+
+  /* Tasarım ve Estetik */
+  border: 1px solid #e0e0e0; /* İnce bir çerçeve */
+  border-radius: 15px; /* Tur kartları gibi yuvarlak köşeler */
+  padding: 10px; /* Resim ile çerçeve arasında boşluk (padding) */
+  background-color: #fff; /* Beyaz arka plan */
+  transition: transform 0.3s ease, box-shadow 0.4s ease; /* Yumuşak geçiş efektleri */
+}
+
+/* Kartın üzerine gelindiğinde (hover) efekti */
+.post-image-card:hover {
+  transform: translateY(-5px) scale(1.02); /* Hafifçe yukarı kalksın ve büyüsün */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Daha belirgin bir gölge */
+}
+
+/* Kart içindeki resmin kendisi için stil */
+.post-image-card img {
+  border-radius: 10px; /* Resmin kendi köşelerini de yuvarlat, çerçeveye uyum sağlasın */
+}
+/* == TUR DETAY SAYFASI (tur_detay.php) STİLLERİ == */
+
+.tour-header-price .old-price-lg {
+  font-size: 1.5rem;
+  color: #eee;
+  text-decoration: line-through;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.tour-header-price .current-price-lg {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color); /* Altın rengi */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.tour-info-card {
+  border-radius: 15px;
+  padding: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    #1a4d8c 100%
+  ); /* Hafif gradient */
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.tour-info-card .card-title {
+  color: var(--secondary-color);
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.tour-details-list li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.tour-details-list li i {
+  color: var(--secondary-color); /* İkonlar altın rengi olsun */
+  min-width: 25px; /* İkonların hizalanması için */
+}
+
+/* Dahil / Hariç Hizmetler için Kart Stili */
+.card-body.px-0 {
+  /* Mevcut blog-content stiline uygunluk */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.card-body.px-0 ol,
+.card-body.px-0 ul {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+.card-body.px-0 li {
+  margin-bottom: 0.5rem;
+}
+
+/* Sayfa başlıkları için özel stil */
+.section-title-left {
+  font-weight: 700;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+.section-title-left::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary-color);
 }

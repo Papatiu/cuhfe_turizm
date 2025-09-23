@@ -88,3 +88,28 @@ window.onload = function() {
         }, 500);
     }
 };
+
+// GOOGLE MAPS İÇİN BAŞLATMA FONKSİYONU
+function initMap() {
+    // Haritanın merkezleneceği koordinatlar (Örn: İstanbul)
+    const myLatLng = { lat: 41.0082, lng: 28.9784 }; 
+    
+    // Haritayı oluştur ve #gmap_canvas ID'li div'in içine yerleştir
+    const map = new google.maps.Map(document.getElementById("gmap_canvas"), {
+        zoom: 14, // Yakınlık seviyesi
+        center: myLatLng, // Merkez koordinatları
+    });
+
+    // Harita üzerine bir işaretçi ekle
+    new google.maps.Marker({
+        position: myLatLng,
+        map,
+        title: "Cuhfe Turizm Ofis",
+    });
+}
+
+// Preloader'ı gizleme kodu
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    preloader.classList.add('preloader-hidden');
+});

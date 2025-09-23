@@ -1,0 +1,93 @@
+/*
+  ==============================================
+  ADMİN PANELİ - YENİLENMİŞ LOGIN SAYFASI STİLLERİ
+  ==============================================
+*/
+body.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* Şık bir arkaplan gradienti */
+    background: #0a2e5c; /* fallback color */
+    background: linear-gradient(135deg, #0a2e5c 0%, #001f3f 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-wrapper {
+    max-width: 450px;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 1rem; /* Daha yuvarlak köşeler */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.login-logo img {
+    height: 90px; /* Logoyu biraz büyüttük */
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 1rem;
+}
+
+.login-logo h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Floating Labels (Daha Şık Inputlar) */
+.form-floating label {
+    color: #6c757d; /* Label rengi */
+}
+
+.form-floating .form-control {
+    border-radius: 0.5rem; /* Input köşeleri */
+    border: 1px solid #ced4da;
+    height: 58px; /* Yükseklik */
+    line-height: 1.25;
+}
+
+.form-floating .form-control:focus {
+    border-color: var(--primary-color, #0a2e5c);
+    box-shadow: 0 0 0 0.25rem rgba(10, 46, 92, 0.15);
+}
+
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    font-size: 0.8rem; /* Yazı yukarı kalkınca boyutu */
+}
+
+/* Giriş Yap Butonu */
+.btn-primary {
+    background-color: var(--primary-color, #0a2e5c);
+    border-color: var(--primary-color, #0a2e5c);
+    font-weight: 600;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #082449;
+    border-color: #082449;
+    transform: translateY(-2px); /* Butona hover efekti */
+    box-shadow: 0 4px 10px rgba(10, 46, 92, 0.3);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.6); /* Soluk beyaz yazı */
+    font-size: 0.9rem;
+}

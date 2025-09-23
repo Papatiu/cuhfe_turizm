@@ -42,10 +42,11 @@ $unread_notifications_count = $db->query("SELECT COUNT(*) FROM notifications WHE
                 <a href="umre_turlari.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo in_array($current_page, ['umre_turlari.php']) || (in_array($current_page, ['tur_ekle.php', 'tur_duzenle.php']) && ($_GET['type'] ?? '') == 'umre') ? 'active' : ''; ?>"><i class="fas fa-moon me-2"></i> Umre Turları</a>
                 <a href="musteriler.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo in_array($current_page, ['musteriler.php', 'musteri_ekle.php', 'musteri_duzenle.php']) ? 'active' : ''; ?>"><i class="fas fa-users me-2"></i> Müşteriler</a>
                 <a href="gelen_mesajlar.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo in_array($current_page, ['gelen_mesajlar.php', 'mesaj_goruntule.php']) ? 'active' : ''; ?>"><i class="fas fa-envelope-open-text me-2"></i> Gelen Mesajlar</a>
-                <a href="blog.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo in_array($current_page, ['blog.php', 'yazi_ekle.php', 'yazi_duzenle.php']) ? 'active' : ''; ?>"><i class="fas fa-blog me-2"></i> Blog/Duyurular</a>
-                <a href="ayarlar.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo ($current_page == 'ayarlar.php') ? 'active' : ''; ?>"><i class="fas fa-cog me-2"></i> Ayarlar</a>
-                          <a href="#" class="list-group-item list-group-item-action bg-transparent text-white"><i class="fas fa-cog me-2"></i> Ayarlar</a>
-                
+                <a href="blog.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo in_array($current_page, ['blog.php', 'yazi_ekle.php', 'yazi_duzenle.php']) ? 'active' : ''; ?>"><i class="fas fa-blog me-2"></i> Blog/Duyurular</a>                
+                <a href="kurumsal_sayfalar.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo ($current_page_base == 'kurumsal_sayfalar.php') ? 'active' : ''; ?>">
+                  <i class="fas fa-building me-2"></i> Kurumsal Sayfalar
+                </a>
+                <a href="ayarlar.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo ($current_page == 'ayarlar.php') ? 'active' : ''; ?>"><i class="fas fa-cog me-2"></i> Ayarlar</a>                                          
                 <!-- === YENİ TUR İŞLEMLERİ BÖLÜMÜ === -->
                 <div class="list-group-item list-group-item-action bg-transparent text-secondary fw-bold" style="cursor: default; background-color: #1a1d20 !important;">
                     <small>TUR İŞLEMLERİ</small>
@@ -56,6 +57,10 @@ $unread_notifications_count = $db->query("SELECT COUNT(*) FROM notifications WHE
 <!-- Biten turlar sayfası bir sonraki adımda yapılacak -->
 <a href="biten_turlar.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo ($current_page == 'biten_turlar.php') ? 'active' : ''; ?>"><i class="fas fa-history me-2"></i> Biten Turlar</a>
             </div>
+            <div class="list-group-item list-group-item-action bg-transparent text-secondary fw-bold" style="cursor: default; background-color: #1a1d20 !important;">
+                    <small>GALERİ İŞLEMLERİ</small>
+                </div>
+             <a href="galeri_yonetimi.php" class="list-group-item list-group-item-action bg-transparent text-white <?php echo ($current_page == 'galeri_yonetimi.php') ? 'active' : ''; ?>"><i class="fas fa-user-tag me-2"></i> Galeri Yönetimi</a>
         </div>
 
         <!-- Sayfa İçeriği Wrapper -->
