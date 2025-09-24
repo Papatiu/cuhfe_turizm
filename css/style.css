@@ -890,3 +890,60 @@ h6,
   height: 3px;
   background-color: var(--secondary-color);
 }
+/* == İÇERİK İÇİ RESİM KARTI STİLİ (tur_detay.php & yazi.php için) == */
+
+.post-image-card {
+  /* Boyutlandırma ve Hizalama */
+  max-width: 100%; /* Kapsayıcısının genişliğini geçmesin */
+  width: 720px; /* Maksimum 720px genişliğinde olsun (ideal blog genişliği) */
+  margin-left: auto; /* Otomatik olarak ortala */
+  margin-right: auto;
+  overflow: hidden; /* Köşeden taşmaları engelle */
+
+  /* Tasarım */
+  border-radius: 15px; /* Yumuşak köşeler */
+  padding: 10px; /* Resim ile çerçeve arasında boşluk */
+  background-color: #fff; /* Kart arka planı */
+  border: 1px solid #e9ecef; /* İnce, modern bir çerçeve */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); /* Hafif ve modern bir gölge */
+}
+
+.post-image-card img {
+  border-radius: 10px; /* Resmin kendi köşelerini de yuvarlat */
+  width: 100%; /* Resmin, kartın içini doldurmasını sağla */
+  height: auto; /* Oranını koru */
+}
+/* TUR DETAY SAYFASINDAKİ RESİM İÇİN BOYUTLANDIRMA */
+.tur-detay-icerik .post-image-card {
+  max-width: 100%; /* Kartın kendisi %100 genişlikte olsun */
+}
+
+.tur-detay-icerik .post-image-card img {
+  max-height: 500px; /* RESMİN MAKSİMUM YÜKSEKLİĞİ */
+  width: 100%; /* Genişlik kabına tam otursun */
+  object-fit: cover; /* Resmin oranını bozmadan alanı kapla */
+}
+/* ============================================= */
+/* === TUR/BLOG DETAY RESİM BOYUTLANDIRMASI === */
+/* ============================================= */
+
+/* Bu kural hem blog hem de tur detay sayfalarındaki
+   .post-image-card class'ına sahip resimleri hedefler */
+.post-image-card img {
+  max-height: 500px; /* Resmin maksimum yüksekliği 500px olsun */
+  width: 100%; /* Genişliği, içinde bulunduğu alana tam sığsın */
+  object-fit: cover; /* Resmin oranını bozmadan, alanı kaplayacak şekilde kırp/yakınlaş */
+  border-radius: 10px; /* Mevcut stildeki border-radius'u koruyalım */
+}
+/* ===================================== */
+/* === TUR DETAY RESİM BOYUTLANDIRMA === */
+/* ===================================== */
+
+/* Bu kural, tur detay ve blog detay sayfalarındaki
+   .post-image-card class'ına sahip resimleri hedefler */
+.post-image-card img {
+  max-height: 500px; /* Resmin maksimum yüksekliği 500px ile sınırlandı */
+  width: 100%; /* Genişliği, içinde bulunduğu alana tam sığsın */
+  object-fit: cover; /* Görüntü oranını bozmadan alanı kapla, taşan kısımları kırp */
+  border-radius: 10px; /* Yumuşak köşeler */
+}
